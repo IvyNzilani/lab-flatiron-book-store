@@ -45,3 +45,38 @@ const bookStore = {
 
 // Write your code here!
 
+// index.js
+
+// Step 1: Select and update the header
+const bookStoreTitle = document.getElementById("header");
+bookStoreTitle.textContent = bookStore.name;
+
+// Step 2: Select the book list container
+const bookList = document.getElementById("book-list");
+
+// Step 3: Loop through books and create elements
+bookStore.books.forEach((book) => {
+  // Create container
+  const bookContainer = document.createElement("li");
+
+  // Create title
+  const bookTitle = document.createElement("h3");
+  bookTitle.textContent = book.title;
+
+  // Create author
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = book.author;
+
+  // Create image
+  const bookImage = document.createElement("img");
+  bookImage.src = book.imageUrl;
+  bookImage.alt = `Cover of ${book.title}`;
+
+  // Append title, author, image to container
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookAuthor);
+  bookContainer.appendChild(bookImage);
+
+  // Append container to the book list
+  bookList.appendChild(bookContainer);
+});
